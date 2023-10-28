@@ -14,11 +14,10 @@ const RoleSchema = new mongoose.Schema({
       enum: ['Community Member', 'Community Admin'], // Set default values
     }
 },{
-    timestamps:true
+    timestamps:{ createdAt: 'created_at', updatedAt: 'updated_at' }
 })
 
 RoleSchema.pre('save',function(next){
-    // console.log('Slug Name',this.name)\
     if (!this.id) {
         // Generate a Snowflake ID and set it in the document
         this.id = Snowflake.generate().toString();

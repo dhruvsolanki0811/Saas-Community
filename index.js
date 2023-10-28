@@ -9,6 +9,7 @@ const errorHandler = require('./error')
 const user=require('./routes/user')
 const community=require('./routes/community')
 const role=require('./routes/role')
+const member=require('./routes/member')
 
 
 
@@ -28,6 +29,7 @@ conn();
 app.use('/api/v1/auth', user);
 app.use('/api/v1/community', community);
 app.use('/api/v1/role', role);
+app.use('/api/v1/member', member);
 
 
 

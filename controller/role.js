@@ -29,7 +29,7 @@ exports.getRoles= asyncHandler(async (req, res, next) => {
 
   const count = await Role.countDocuments()    
   const totalPages = Math.ceil(count / limit);
-    const roles= await Role.find().skip((page - 1) * limit).limit(limit)
+    const roles= await Role.find({},'-_id -__v').skip((page - 1) * limit).limit(limit)
 
     res.status(200).json({
         status:true,
