@@ -5,7 +5,6 @@ const errorHandler=(err,req,res,next)=>{
     let error={...err}
     error.message= err.message
     //Mongoose bad object
-    console.log("ASassasa")
     if(err.name==='CastError'){
         const message=`Resource not found with id ${err.value}`
         error= new ErrorResponse(message,404)

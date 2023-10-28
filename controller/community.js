@@ -15,7 +15,6 @@ exports.createCommunity = asyncHandler(async (req, res, next) => {
     const community = await Community.create(req.body);
     const member= await Member.create({community:community.id,role:role.id,user:req.user.id})
     
-    console.log(member)
     res.status(201).json({
   "status": true,
   "content": {

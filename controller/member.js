@@ -22,7 +22,6 @@ exports.createMember = asyncHandler(async (req, res, next) => {
     }
     const role= await Role.findOne({'name':'Community Member'})
     const memberExist=await Member.findOne({community:community.id,user:req.body.user})
-    console.log(memberExist)
     if(memberExist){
       return next(new ErrorResponse('Already a member'),400)
       ;
@@ -30,7 +29,6 @@ exports.createMember = asyncHandler(async (req, res, next) => {
 
     const member= await Member.create({community:community.id,user:req.body.user,role:role.id})
 
-    console.log("whyyyyyyy")
     res.status(201).json({
   "status": true,
   "content": {
