@@ -7,10 +7,11 @@ const {Snowflake} =require("@theinternetfolks/snowflake");
 // @desc      Create user
 // @route     POST /api/v1/users
 exports.createUser = asyncHandler(async (req, res, next) => {
-    const snowflakeId=Snowflake.generate().toString();
+    // const snowflakeId=Snowflake.generate().toString();
     const userData = {
-        id: snowflakeId,
+        // id: snowflakeId,
         ...req.body,
+        
       };
     const user = await User.create(userData);
     
